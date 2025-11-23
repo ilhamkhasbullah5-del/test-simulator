@@ -7,30 +7,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body
-    class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center"
-  >
-    <!-- HEADER -->
-    <div class="text-center mb-10">
-      <h1 class="text-4xl font-bold mb-3">
-        Hero Battle Simulator (RIGHT CLICK ATTACK)
-      </h1>
-      <p class="text-gray-400">
-        Halo selamat datang di website Beta sederhanaku.
-      </p>
+  <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center">
+    <!-- NAVBAR -->
+    <nav class="w-full bg-gray-900 py-4 px-6 sticky flex items-center">
+      <span class="text-xl font-bold">Ham's Property</span>
+    </nav>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="flex flex-col items-center justify-center flex-grow">
+      <!-- HEADER -->
+      <div class="text-center mb-10 mt-10">
+        <h1 class="text-4xl font-bold mb-3">
+          Hero Battle Simulator (RIGHT CLICK ATTACK)
+        </h1>
+        <p class="text-gray-400">
+          Halo selamat datang di website Beta sederhanaku.
+        </p>
+      </div>
+
+      <!-- START BUTTON -->
+      <a
+        href="index.html"
+        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-semibold"
+      >
+        Mulai Permainan
+      </a>
+
+      <!-- EMPTY CONTAINER -->
+      <div
+        class="mt-14 w-3/4 md:w-1/2 bg-gray-800 rounded-lg p-8 min-h-[200px]"
+      ></div>
     </div>
-
-    <!-- START BUTTON -->
-    <a
-      href="index.html"
-      class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-semibold"
-    >
-      Mulai Permainan
-    </a>
-
-    <!-- EMPTY CONTAINER -->
-    <div
-      class="mt-14 w-3/4 md:w-1/2 bg-gray-800 rounded-lg p-8 min-h-[200px]"
-    ></div>
   </body>
 </html>
