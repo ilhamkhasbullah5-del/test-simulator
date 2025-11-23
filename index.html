@@ -2,90 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Hero Battle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Simulator</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-900 text-white p-10">
-    <h1 class="text-3xl font-bold mb-6">Hero Battle Simulator</h1>
 
-    <!-- Hero Status -->
-    <div class="grid grid-cols-2 gap-6 mb-8">
-      <div class="p-4 bg-gray-800 rounded">
-        <h2 class="text-xl font-bold">Bambang</h2>
-        <p id="bambangHealth">Health: 100</p>
-        <button
-          onclick="bambang.attack(asep)"
-          class="mt-3 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded"
-        >
-          Attack Asep
-        </button>
+  <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center">
+    <!-- NAVBAR -->
+    <nav class="w-full bg-gray-900 py-4 px-6 sticky flex items-center">
+      <span class="text-xl font-bold">Ham's Property</span>
+    </nav>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="flex flex-col items-center justify-center flex-grow">
+      <!-- HEADER -->
+      <div class="text-center mb-10 mt-10">
+        <h1 class="text-4xl font-bold mb-3">
+          Hero Battle Simulator (RIGHT CLICK ATTACK)
+        </h1>
+        <p class="text-gray-400">
+          Halo selamat datang di website Beta sederhanaku.
+        </p>
       </div>
 
-      <div class="p-4 bg-gray-800 rounded">
-        <h2 class="text-xl font-bold">Asep</h2>
-        <p id="asepHealth">Health: 100</p>
-        <button
-          onclick="asep.attack(bambang)"
-          class="mt-3 px-4 py-2 bg-red-500 hover:bg-red-600 rounded"
-        >
-          Attack Bambang
-        </button>
-      </div>
+      <!-- START BUTTON -->
+      <a
+        href="index.html"
+        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-semibold"
+      >
+        Mulai Permainan
+      </a>
+
+      <!-- EMPTY CONTAINER -->
+      <div
+        class="mt-14 w-3/4 md:w-1/2 bg-gray-800 rounded-lg p-8 min-h-[200px]"
+      ></div>
     </div>
-
-    <!-- Battle Log -->
-    <div class="bg-gray-800 p-4 rounded h-64 overflow-y-auto" id="logBox">
-      <p class="text-gray-400">Battle Log:</p>
-    </div>
-
-    <script>
-      // ========= CLASS HERO =========
-      class Hero {
-        constructor(name, health, attackPower, armorNumber) {
-          this.name = name;
-          this.health = health;
-          this.attackPower = attackPower;
-          this.armorNumber = armorNumber;
-        }
-
-        // Menyerang
-        attack(lawan) {
-          addLog(`${this.name} attacks ${lawan.name}`);
-          lawan.attacked(this, this.attackPower);
-          updateUI();
-        }
-
-        // Diserang
-        attacked(lawan, attackPower_lawan) {
-          addLog(`${this.name} attacked by ${lawan.name}`);
-          let attack_diterima = attackPower_lawan / this.armorNumber;
-          addLog(`Damage received: ${attack_diterima.toFixed(2)}`);
-          this.health -= attack_diterima;
-          addLog(`${this.name} health left: ${this.health.toFixed(2)}`);
-        }
-      }
-
-      // ========= DATA HERO =========
-      let bambang = new Hero("Bambang", 100, 10, 5);
-      let asep = new Hero("Asep", 100, 20, 10);
-
-      // ========= TAMPILAN UI SEDERHANA =========
-      function updateUI() {
-        document.getElementById(
-          "bambangHealth"
-        ).innerText = `Health: ${bambang.health.toFixed(2)}`;
-        document.getElementById(
-          "asepHealth"
-        ).innerText = `Health: ${asep.health.toFixed(2)}`;
-      }
-
-      function addLog(text) {
-        const logBox = document.getElementById("logBox");
-        let p = document.createElement("p");
-        p.textContent = text;
-        logBox.appendChild(p);
-        logBox.scrollTop = logBox.scrollHeight;
-      }
-    </script>
   </body>
 </html>
